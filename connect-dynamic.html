@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+
+        const googlePlayLink = 'https://play.google.com/store/apps/details?id=com.connection.dynamic';
+        const appStoreLink = 'https://apps.apple.com/us/app/connect-feelings/id6476152273';
+        var url = 'empty';
+        if (!IsPC()) {
+            switch (MobileType()) {
+                case 'Android':
+                    OpenGooglePlay();
+                    break;
+                case 'iOS':
+                    OpenAppStore();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        function IsPC() {
+            var userAgentInfo = navigator.userAgent;
+            var Agents = ["Android", "iPhone",
+                "SymbianOS", "Windows Phone",
+                "iPad", "iPod"];
+            var flag = true;
+            for (var v = 0; v < Agents.length; v++) {
+                if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                    flag = false;
+                    break;
+                }
+            }
+            return flag;
+        }
+
+        function MobileType() {
+            var u = navigator.userAgent;
+            if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
+                return 'Android';
+            } else if (u.indexOf('iPhone') > -1) {
+                return 'iOS';
+            } else if (u.indexOf('Windows Phone') > -1) {
+                return 'WindowsPhone';
+            }
+        }
+
+        function OpenGooglePlay() {
+            document.location.href = googlePlayLink;
+        }
+
+        function OpenAppStore() {
+            document.location.href = appStoreLink;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <body bgcolor="#23002e">
+        <div style="border:10px #85edff solid;border-radius:15px;width:465px;height:465px;background-color:#85edff;">
+            <img src="AppIcon.png" width="465" height="465">
+        </div>
+        <br>
+        <button type="button" onclick="OpenGooglePlay()" style="background-color: transparent;"><img
+                src="google_play.png" width="215" height="83" /></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" onclick="OpenAppStore()" style="background-color: transparent;"><img src="app_store.png"
+                width="215" height="83" /></button>
+    </body>
+
+</html>
