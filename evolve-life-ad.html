@@ -86,6 +86,7 @@
         const source = getUrlParameter('source') || '';
         
         function openUrl() {
+            going()
             let url = `https://evolife.fun/index_${area}?source=${source}`;
             document.location.href = url;
         }
