@@ -89,6 +89,17 @@
             let url = `https://evolife.fun/index_${area}?source=${source}`;
             document.location.href = url;
         }
+
+        function going() {
+            <!-- Event snippet for 購買 conversion page -->
+            gtag('event', 'conversion', {
+                'send_to': 'AW-450194785/QYaXCMyLnucZEOHa1dYB',
+                'value': 1.0,
+                'currency': 'USD',
+                'transaction_id': ''
+            });
+        }
+
     </script>
 </head>
 
@@ -99,6 +110,9 @@
             <button type="button" onclick="openUrl()" class="button">
                 <img src="start.png" width="256" height="128" alt="Start Button">
             </button>
+            <!-- <button type="button" onclick="going()" class="button">
+                <img src="start.png" width="16" height="8" alt="Going Button">
+            </button> -->
         </div>
     </div>
 </body>
