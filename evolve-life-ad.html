@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evolve! My Life</title>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Evolve! My Life">
+    <meta property="og:description" content="For fun and play easily">
+    <meta property="og:image" content="https://appcollections.github.io/icons/evolve-life.png">
+    <meta property="og:image:width" content="300">
+    <meta property="og:image:height" content="300">
+    <meta property="og:type" content="website">
+    
+    <style>
+        /* 全局樣式讓內容置中 */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #23002e;
+        }
+
+        /* 容器樣式 */
+        .container {
+            border: 10px #85edff solid;
+            border-radius: 15px;
+            background-color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            max-width: 465px;
+        }
+
+        /* 圖片樣式 */
+        .app-image {
+            width: 100%;
+            height: auto;
+            max-width: 465px;
+        }
+
+        /* 按鈕樣式 */
+        .button {
+            background-color: transparent;
+            border: none;
+            padding: 10px;
+        }
+
+        /* 響應式設置：縮小畫面時按鈕垂直排列 */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+                height: auto;
+            }
+
+            .button-group {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+        }
+    </style>
+
+    <script>
+        
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+        
+        const area = getUrlParameter('area') || 'zh';
+        const source = getUrlParameter('source') || '';
+        
+        function openUrl() {
+            let url = `https://evolife.fun/index_${area}?source=${source}`;
+            document.location.href = url;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <img src="icons/evolve-life.png" class="app-image" alt="Evolve Life Icon">
+        <div class="button-group">
+            <button type="button" onclick="openUrl()" class="button">
+                <img src="start.png" width="256" height="128" alt="Start Button">
+            </button>
+        </div>
+    </div>
+</body>
+</html>
