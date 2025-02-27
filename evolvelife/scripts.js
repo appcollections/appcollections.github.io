@@ -1,3 +1,22 @@
+const commonProbabilityValues = {
+    prefix: [
+        { level: 'S', chance: '0.2%' },
+        { level: 'A', chance: '0.8%' },
+        { level: 'B', chance: '4%' },
+        { level: 'C', chance: '22%' },
+        { level: 'D', chance: '31%' },
+        { level: 'E', chance: '42%' }
+    ],
+    suffix: [
+        { level: 'S', chance: '3%' },
+        { level: 'A', chance: '7%' },
+        { level: 'B', chance: '10%' },
+        { level: 'C', chance: '15%' },
+        { level: 'D', chance: '30%' },
+        { level: 'E', chance: '35%' }
+    ]
+};
+
 const languagePack = {
     tw: {
         probability: "機率",
@@ -6,6 +25,9 @@ const languagePack = {
         accessories: "飾品",
         prefixProbability: "前綴機率",
         suffixProbability: "後綴機率",
+        level: "等級",
+        ability: "能力",
+        chance: "機率",
         weaponEnchantment5: "武器附魔位置(+5)",
         weaponEnchantment10: "武器附魔位置(+10)",
         weaponEnchantment15: "武器附魔位置(+15)",
@@ -15,9 +37,6 @@ const languagePack = {
         annexEnchantment5: "飾品附魔位置(+5)",
         annexEnchantment10: "飾品附魔位置(+10)",
         annexEnchantment15: "飾品附魔位置(+15)",
-        level: "等級",
-        ability: "能力",
-        chance: "機率",
         prefixProbabilityValues: [
             { level: 'S', chance: '1%' },
             { level: 'A', chance: '2%' },
@@ -197,41 +216,41 @@ const languagePack = {
         ]
     },
     "en": {
-        "probability": "Probability",
-        "weapons": "Weapons",
-        "armor": "Armor",
-        "accessories": "Accessories",
-        "prefixProbability": "Prefix Probability",
-        "suffixProbability": "Suffix Probability",
-        "weaponEnchantment5": "Weapon Enchantment Slot (+5)",
-        "weaponEnchantment10": "Weapon Enchantment Slot (+10)",
-        "weaponEnchantment15": "Weapon Enchantment Slot (+15)",
-        "armorEnchantment5": "Armor Enchantment Slot (+5)",
-        "armorEnchantment10": "Armor Enchantment Slot (+10)",
-        "armorEnchantment15": "Armor Enchantment Slot (+15)",
-        "annexEnchantment5": "Accessory Enchantment Slot (+5)",
-        "annexEnchantment10": "Accessory Enchantment Slot (+10)",
-        "annexEnchantment15": "Accessory Enchantment Slot (+15)",
-        "level": "Level",
-        "ability": "Ability",
-        "chance": "Chance",
-        "prefixProbabilityValues": [
-            { "level": "S", "chance": "1%" },
-            { "level": "A", "chance": "2%" },
-            { "level": "B", "chance": "3%" },
-            { "level": "C", "chance": "4%" },
-            { "level": "D", "chance": "5%" },
-            { "level": "E", "chance": "6%" }
+        probability: "Probability",
+        weapons: "Weapons",
+        armor: "Armor",
+        accessories: "Accessories",
+        prefixProbability: "Prefix Probability",
+        suffixProbability: "Suffix Probability",
+        level: "Level",
+        ability: "Ability",
+        chance: "Chance",
+        weaponEnchantment5: "Weapon Enchantment Slot (+5)",
+        weaponEnchantment10: "Weapon Enchantment Slot (+10)",
+        weaponEnchantment15: "Weapon Enchantment Slot (+15)",
+        armorEnchantment5: "Armor Enchantment Slot (+5)",
+        armorEnchantment10: "Armor Enchantment Slot (+10)",
+        armorEnchantment15: "Armor Enchantment Slot (+15)",
+        annexEnchantment5: "Accessory Enchantment Slot (+5)",
+        annexEnchantment10: "Accessory Enchantment Slot (+10)",
+        annexEnchantment15: "Accessory Enchantment Slot (+15)",
+        prefixProbabilityValues: [
+            { level: 'S', chance: '1%' },
+            { level: 'A', chance: '2%' },
+            { level: 'B', chance: '3%' },
+            { level: 'C', chance: '4%' },
+            { level: 'D', chance: '5%' },
+            { level: 'E', chance: '6%' }
         ],
-        "suffixProbabilityValues": [
-            { "level": "S", "chance": "1%" },
-            { "level": "A", "chance": "2%" },
-            { "level": "B", "chance": "3%" },
-            { "level": "C", "chance": "4%" },
-            { "level": "D", "chance": "5%" },
-            { "level": "E", "chance": "6%" }
+        suffixProbabilityValues: [
+            { level: 'S', chance: '1%' },
+            { level: 'A', chance: '2%' },
+            { level: 'B', chance: '3%' },
+            { level: 'C', chance: '4%' },
+            { level: 'D', chance: '5%' },
+            { level: 'E', chance: '6%' }
         ],
-        "weaponEnchantment5Values": [
+        weaponEnchantment5Values: [
             "Attack + N %",
             "CriticalRate + N %",
             "CriticalDamage + N %",
@@ -249,7 +268,7 @@ const languagePack = {
             "CriticalRate + N %",
             "CriticalDamage + N %",
         ],
-        "weaponEnchantment10Values": [
+        weaponEnchantment10Values: [
             "Damage dealt is increased by  N % with a 15% chance when attacking",
             "Damage dealt is increased by  N % with a 60% chance when landing a critical hit",
             "Damage dealt is increased by  N % with a 15% chance when attacking",
@@ -263,7 +282,7 @@ const languagePack = {
             "Damage dealt is increased by  N % with a 15% chance when attacking",
             "Damage dealt is increased by  N % with a 60% chance when landing a critical hit",
         ],
-        "weaponEnchantment15Values": [
+        weaponEnchantment15Values: [
             "Ignore N% of enemy defense when attacking",
             "Ignore N% of enemy defense when landing a critical hit",
             "Increase damage dealt to Boss by N%",
@@ -279,7 +298,7 @@ const languagePack = {
             "Ignore N% of enemy defense when landing a critical hit",
 
         ],
-        "armorEnchantment5Values": [
+        armorEnchantment5Values: [
             "Health + N%",
             "Defense + N%",
             "Basic Attack Damage Reduction + N%",
@@ -297,7 +316,7 @@ const languagePack = {
             "Skill Damage Reduction + N%",
             "Pet Damage Reduction + N%"
         ],
-        "armorEnchantment10Values": [
+        armorEnchantment10Values: [
             "10% chance to absorb N% damage when hit",
             "9% chance to absorb N% damage when hit",
             "8% chance to absorb N% damage when hit",
@@ -317,7 +336,7 @@ const languagePack = {
             "9% chance to absorb N% damage when attacked",
             "20% chance to absorb N% damage on critical hit"
         ],
-        "armorEnchantment15Values": [
+        armorEnchantment15Values: [
             "20% chance to absorb N% damage when hit",
             "18% chance to absorb N% damage when hit",
             "16% chance to absorb N% damage when hit",
@@ -337,7 +356,7 @@ const languagePack = {
             "18% chance to absorb N% damage when attacked",
             "40% chance to absorb N% damage on critical hit"
         ],
-        "annexEnchantment5Values": [
+        annexEnchantment5Values: [
             "Attack + N%",
             "Defense + N%",
             "Health + N%",
@@ -365,7 +384,7 @@ const languagePack = {
             "Health + N%",
             "Critical Rate + N%"
         ],
-        "annexEnchantment10Values": [
+        annexEnchantment10Values: [
             "Evasion +N%",
             "Ignore Evasion +N%",
             "Basic Attack Damage +N%",
@@ -381,7 +400,7 @@ const languagePack = {
             "Heal Rate +N%",
             "Heal Amount +N%",
         ],
-        "annexEnchantment15Values": [
+        annexEnchantment15Values: [
             "Increase Attack by N%",
             "Increase Defense by N%",
             "Increase Health by N%",
@@ -421,6 +440,9 @@ const languagePack = {
         accessories: "アクセサリー",
         prefixProbability: "プレフィックス確率",
         suffixProbability: "サフィックス確率",
+        level: "レベル",
+        ability: "能力",
+        chance: "確率",
         weaponEnchantment5: "武器エンチャントスロット(+5)",
         weaponEnchantment10: "武器エンチャントスロット(+10)",
         weaponEnchantment15: "武器エンチャントスロット(+15)",
@@ -430,9 +452,6 @@ const languagePack = {
         annexEnchantment5: "アクセサリーエンチャントスロット(+5)",
         annexEnchantment10: "アクセサリーエンチャントスロット(+10)",
         annexEnchantment15: "アクセサリーエンチャントスロット(+15)",
-        level: "レベル",
-        ability: "能力",
-        chance: "確率",
         prefixProbabilityValues: [
             { level: 'S', chance: '1%' },
             { level: 'A', chance: '2%' },
@@ -643,6 +662,9 @@ const languagePack = {
         "accessories": "장신구",
         "prefixProbability": "접두 확률",
         "suffixProbability": "접미 확률",
+        "level": "레벨",
+        "ability": "능력",
+        "chance": "확률",
         "weaponEnchantment5": "무기 마법 부여 위치(+5)",
         "weaponEnchantment10": "무기 마법 부여 위치(+10)",
         "weaponEnchantment15": "무기 마법 부여 위치(+15)",
@@ -652,32 +674,29 @@ const languagePack = {
         "annexEnchantment5": "장신구 마법 부여 위치(+5)",
         "annexEnchantment10": "장신구 마법 부여 위치(+10)",
         "annexEnchantment15": "장신구 마법 부여 위치(+15)",
-        "level": "레벨",
-        "ability": "능력",
-        "chance": "확률",
-        "prefixProbabilityValues": [
-            { "level": "S", "chance": "1%" },
-            { "level": "A", "chance": "2%" },
-            { "level": "B", "chance": "3%" },
-            { "level": "C", "chance": "4%" },
-            { "level": "D", "chance": "5%" },
-            { "level": "E", "chance": "6%" }
+        prefixProbabilityValues: [
+            { level: 'S', chance: '1%' },
+            { level: 'A', chance: '2%' },
+            { level: 'B', chance: '3%' },
+            { level: 'C', chance: '4%' },
+            { level: 'D', chance: '5%' },
+            { level: 'E', chance: '6%' }
         ],
-        "suffixProbabilityValues": [
-            { "level": "S", "chance": "1%" },
-            { "level": "A", "chance": "2%" },
-            { "level": "B", "chance": "3%" },
-            { "level": "C", "chance": "4%" },
-            { "level": "D", "chance": "5%" },
-            { "level": "E", "chance": "6%" }
+        suffixProbabilityValues: [
+            { level: 'S', chance: '1%' },
+            { level: 'A', chance: '2%' },
+            { level: 'B', chance: '3%' },
+            { level: 'C', chance: '4%' },
+            { level: 'D', chance: '5%' },
+            { level: 'E', chance: '6%' }
         ],
-        "weaponEnchantment5Values": [
+        weaponEnchantment5Values: [
             "공격력+ N %", "치명타 확률+ N %", "치명타 피해+ N %", "공격력, 방어력, 체력+ N %",
             "치명타 확률+ N %", "치명타 피해+ N %", "치명타 확률+ N %", "치명타 피해+ N %",
             "공격력+ N %", "치명타 확률+ N %", "치명타 피해+ N %", "공격력+ N %",
             "치명타 확률+ N %", "치명타 피해+ N %", "치명타 확률+ N %", "치명타 피해+ N %"
         ],
-        "weaponEnchantment10Values": [
+        weaponEnchantment10Values: [
             "공격 시 15% 확률로 총 피해량 N % 증가", "치명타 시 60% 확률로 총 피해량 N % 증가",
             "공격 시 15% 확률로 총 피해량 N % 증가", "치명타 시 60% 확률로 총 피해량 N % 증가",
             "공격 시 15% 확률로 총 피해량 N % 증가", "치명타 시 60% 확률로 총 피해량 N % 증가",
@@ -685,7 +704,7 @@ const languagePack = {
             "공격 시 15% 확률로 총 피해량 N % 증가", "치명타 시 60% 확률로 총 피해량 N % 증가",
             "공격 시 15% 확률로 총 피해량 N % 증가", "치명타 시 60% 확률로 총 피해량 N % 증가"
         ],
-        "weaponEnchantment15Values": [
+        weaponEnchantment15Values: [
             "공격 시 적의 방어력 N % 무시",
             "치명타 시 적의 방어력 N % 무시",
             "보스에게 주는 피해량 N % 증가",
@@ -698,13 +717,13 @@ const languagePack = {
             "공격 시 적의 방어력 N % 무시",
             "치명타 시 적의 방어력 N % 무시"
         ],
-        "armorEnchantment5Values": [
+        armorEnchantment5Values: [
             "체력+ N %", "방어력+ N %", "기본 공격 피해 감소+ N %", "스킬 피해 감소+ N %",
             "기본 공격 피해 감소+ N %", "스킬 피해 감소+ N %", "기본 공격 피해 감소+ N %", "스킬 피해 감소+ N %",
             "펫 피해 감소+ N %", "기본 공격 피해 감소+ N %", "스킬 피해 감소+ N %", "기본 공격 피해 감소+ N %",
             "스킬 피해 감소+ N %", "기본 공격 피해 감소+ N %", "스킬 피해 감소+ N %", "펫 피해 감소+ N %"
         ],
-        "armorEnchantment10Values": [
+        armorEnchantment10Values: [
             "피격 시 10% 확률로 N % 피해 흡수", "피격 시 9% 확률로 N % 피해 흡수",
             "피격 시 8% 확률로 N % 피해 흡수", "공격받을 시 10% 확률로 N % 피해 흡수",
             "공격받을 시 9% 확률로 N % 피해 흡수", "치명타 피격 시 20% 확률로 N % 피해 흡수",
@@ -712,16 +731,16 @@ const languagePack = {
             "치명타 피격 시 20% 확률로 N % 피해 흡수", "공격받을 시 10% 확률로 N % 피해 흡수",
             "공격받을 시 9% 확률로 N % 피해 흡수", "치명타 피격 시 20% 확률로 N % 피해 흡수"
         ],
-        "armorEnchantment15Values": [
+        armorEnchantment15Values: [
             "피격 시 20% 확률로 N % 피해 흡수", "피격 시 18% 확률로 N % 피해 흡수",
             "피격 시 16% 확률로 N % 피해 흡수", "공격받을 시 20% 확률로 N % 피해 흡수",
             "공격받을 시 18% 확률로 N % 피해 흡수", "치명타 피격 시 40% 확률로 N % 피해 흡수"
         ],
-        "annexEnchantment5Values": [
+        annexEnchantment5Values: [
             "공격력+ N %", "방어력+ N %", "체력+ N %", "공격 속도+ N %",
             "회피율+ N %", "치명타 확률+ N %"
         ],
-        "annexEnchantment10Values": [
+        annexEnchantment10Values: [
             "회피율+ N %", "회피 무시+ N %", "기본 공격 피해+ N %", "기본 공격 피해 감소+ N %",
             "스킬 피해+ N %", "스킬 피해 감소+ N %", "펫 피해+ N %", "펫 피해 감소+ N %"
         ],
@@ -766,6 +785,9 @@ const languagePack = {
         accessories: "饰品",
         prefixProbability: "前缀机率",
         suffixProbability: "后缀机率",
+        level: "等级",
+        ability: "能力",
+        chance: "机率",
         weaponEnchantment5: "武器附魔位置(+5)",
         weaponEnchantment10: "武器附魔位置(+10)",
         weaponEnchantment15: "武器附魔位置(+15)",
@@ -775,9 +797,6 @@ const languagePack = {
         annexEnchantment5: "饰品附魔位置(+5)",
         annexEnchantment10: "饰品附魔位置(+10)",
         annexEnchantment15: "饰品附魔位置(+15)",
-        level: "等级",
-        ability: "能力",
-        chance: "机率",
         prefixProbabilityValues: [
             { level: 'S', chance: '1%' },
             { level: 'A', chance: '2%' },
@@ -975,10 +994,11 @@ function setLanguage(lang) {
         el.textContent = languagePack[lang][key];
     });
 
-    // 填充表格内容
-    fillProbabilityTable('prefixProbabilityTable', languagePack[lang].prefixProbabilityValues);
-    fillProbabilityTable('suffixProbabilityTable', languagePack[lang].suffixProbabilityValues);
+    // 使用共用的概率数据填充表格
+    fillProbabilityTable('prefixProbabilityTable', commonProbabilityValues.prefix);
+    fillProbabilityTable('suffixProbabilityTable', commonProbabilityValues.suffix);
 
+    // 其他表格填充保持不变
     fillTable('enchantment5Table', languagePack[lang].weaponEnchantment5Values, ['S', 'S', 'S', 'S', 'A', 'A', 'B', 'B', 'C', 'C', 'C', 'D', 'D', 'D', 'E', 'E']);
     fillTable('enchantment10Table', languagePack[lang].weaponEnchantment10Values, ['S', 'S', 'A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E']);
     fillTable('enchantment15Table', languagePack[lang].weaponEnchantment15Values, ['S', 'S', 'S', 'A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E']);
@@ -1004,7 +1024,9 @@ function setLanguage(lang) {
 function fillProbabilityTable(tableId, values) {
     const table = document.getElementById(tableId);
     const tbody = document.createElement('tbody');
-    values.forEach(item => {
+    // 使用共用的概率数据
+    const probabilityData = tableId.includes('prefix') ? commonProbabilityValues.prefix : commonProbabilityValues.suffix;
+    probabilityData.forEach(item => {
         const row = document.createElement('tr');
         const levelCell = document.createElement('td');
         const chanceCell = document.createElement('td');
