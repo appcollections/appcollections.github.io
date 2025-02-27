@@ -1,0 +1,94 @@
+:root {
+    --base-font-size: 80%; /* 全局变量，控制字体大小 */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: var(--base-font-size); /* 使用全局变量 */
+    margin: 0;
+    padding: 0;
+}
+
+.language-switcher {
+    margin-bottom: 10px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    background-color: #bebebe;
+    padding: 10px 0;
+    position: fixed; /* 固定在页面顶部 */
+    top: 0; /* 距离顶部0像素 */
+    left: 0; /* 距离左侧0像素 */
+    right: 0; /* 距离右侧0像素 */
+    z-index: 1000; /* 确保在其他内容之上 */
+}
+
+.tab {
+    cursor: pointer;
+    padding: 10px;
+    flex: 0 1 60px; /* 设置按钮的基础宽度为80像素 */
+    font-size: 15px; /* 设置字体大小为20像素 */
+    text-align: center;
+    font-weight: bold; /* 将标签文字设置为粗体 */
+    background-color: #959595; /* 所有标签的背景颜色为蓝色 */
+    color: white; /* 字体颜色为白色 */
+    border-radius: 5px; /* 添加圆角效果 */
+    margin-right: 5px; /* 标签之间的间距 */
+}
+
+.tab:hover {
+    background-color: #676767; /* 悬停时的颜色变化 */
+}
+
+.tab.active {
+    background-color: #464646; /* 当前活动标签的颜色 */
+}
+
+.content {
+    display: none;
+    padding: 20px;
+    margin-top: 60px; /* 为了避免内容被固定的标签遮挡，增加上边距 */
+}
+
+.active {
+    display: block;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.weapon-tables {
+    display: flex;
+    justify-content: space-between;
+}
+
+.weapon-tables table {
+    width: 30%;
+    border-collapse: collapse;
+    margin: 10px;
+}
+
+.weapon-tables th, .weapon-tables td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.weapon-tables th {
+    background-color: #f2f2f2;
+}
