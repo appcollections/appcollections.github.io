@@ -65,41 +65,34 @@
     </style>
 
     <script>
-        if (!isPC()) {
-            switch (mobileType()) {
-                case 'Android':
-                    openGooglePlay();
-                    break;
-                case 'iOS':
-                    openAppStore();
-                    break;
-                default:
-                    break;
-            }
+        const params = getUrlParams();
+        const platform = getPlatform();
+
+        // sendBeacon 版本
+        sendPreInstallRecord(params);
+
+        switch (platform) {
+            case 'android':
+                openGooglePlay();
+                break;
+            case 'ios':
+                openAppStore();
+                break;
         }
 
         function isPC() {
-            var userAgentInfo = navigator.userAgent;
-            var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
-            var flag = true;
-            for (var v = 0; v < Agents.length; v++) {
-                if (userAgentInfo.indexOf(Agents[v]) > 0) {
-                    flag = false;
-                    break;
-                }
-            }
-            return flag;
+            const ua = navigator.userAgent;
+            const mobileDevices = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+            return !mobileDevices.some(d => ua.includes(d));
         }
 
-        function mobileType() {
-            var u = navigator.userAgent;
-            if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
-                return 'Android';
-            } else if (u.indexOf('iPhone') > -1) {
-                return 'iOS';
-            } else if (u.indexOf('Windows Phone') > -1) {
-                return 'WindowsPhone';
-            }
+        function getPlatform() {
+            if (isPC()) return 'pc';
+            const u = navigator.userAgent;
+            if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) return 'android';
+            if (u.indexOf('iPhone') > -1) return 'ios';
+            if (u.indexOf('Windows Phone') > -1) return 'windowsphone';
+            return 'unknown';
         }
 
         function openGooglePlay() {
@@ -108,6 +101,30 @@
 
         function openAppStore() {
             document.location.href = 'https://apps.apple.com/app/id6504609086';
+        }
+
+        function sendPreInstallRecord(params) {
+            const payload = {
+                platform: platform,
+                source: params.source,
+                channel: params.channel
+            };
+
+            const blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
+
+            const temp = 'aHR0cHM6Ly9hc2lhLWVhc3QxLWlkbGUtMDAwLmNsb3VkZnVuY3Rpb25zLm5ldC9yZWNlaXZlUHJlSW5zdGFsbFJlY29yZA==';
+            navigator.sendBeacon(
+                atob(temp),
+                blob
+            );
+        }
+
+        function getUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                source: params.get('source') || '',
+                channel: params.get('channel') || ''
+            };
         }
     </script>
 </head>
