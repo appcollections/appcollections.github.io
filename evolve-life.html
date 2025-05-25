@@ -65,20 +65,44 @@
     </style>
 
     <script>
-        const params = getUrlParams();
-        const platform = getPlatform();
+        
+        (async () => {
+            const params = getUrlParams();
+            const platform = getPlatform();
 
-        // sendBeacon 版本
-        sendPreInstallRecord(params);
+            const payload = {
+                platform: platform,
+                source: params.source,
+                channel: params.channel
+            };
 
-        switch (platform) {
-            case 'android':
-                openGooglePlay();
-                break;
-            case 'ios':
-                openAppStore();
-                break;
-        }
+            const temp = 'aHR0cHM6Ly9hc2lhLWVhc3QxLWlkbGUtMDAwLmNsb3VkZnVuY3Rpb25zLm5ldC9yZWNlaXZlUHJlSW5zdGFsbFJlY29yZA==';
+            const url = atob(temp);
+
+            try {
+                await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload),
+                    keepalive: true // 類似 sendBeacon 的效果（但可等待）
+                });
+            } catch (e) {
+                console.warn("送出 preInstall 失敗", e);
+                // 可以考慮 retry 或紀錄錯誤
+            }
+
+            // 等送出完再跳轉
+            switch (platform) {
+                case 'android':
+                    openGooglePlay();
+                    break;
+                case 'ios':
+                    openAppStore();
+                    break;
+            }
+        })();
 
         function isPC() {
             const ua = navigator.userAgent;
