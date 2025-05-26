@@ -80,27 +80,27 @@
             const url = atob(temp);
 
             try {
-                await fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(payload),
-                    keepalive: true // 類似 sendBeacon 的效果（但可等待）
+                const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
                 });
+
+                if (response.ok) {
+                    console.log("資料送出成功:", await response.json());
+                } else {
+                    console.warn("API 回應異常:", response.status);
+                }
             } catch (e) {
                 console.warn("送出 preInstall 失敗", e);
-                // 可以考慮 retry 或紀錄錯誤
             }
 
-            // 等送出完再跳轉
+            // 等 API 完全完成後才跳轉
             switch (platform) {
-                case 'android':
-                    openGooglePlay();
-                    break;
-                case 'ios':
-                    openAppStore();
-                    break;
+                case 'android': openGooglePlay(); break;
+                case 'ios': openAppStore(); break;
             }
         })();
 
