@@ -80,7 +80,7 @@
             const url = atob(temp);
 
             try {
-                const response = await fetch(url, {
+                const response = fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -88,16 +88,16 @@
                 body: JSON.stringify(payload)
                 });
 
-                if (response.ok) {
-                    console.log("資料送出成功:", await response.json());
-                } else {
-                    console.warn("API 回應異常:", response.status);
-                }
+                // if (response.ok) {
+                //     console.log("資料送出成功:", await response.json());
+                // } else {
+                //     console.warn("API 回應異常:", response.status);
+                // }
             } catch (e) {
                 console.warn("送出 preInstall 失敗", e);
             }
 
-            // 等 API 完全完成後才跳轉
+            // 不等 API 完全完成後才跳轉
             switch (platform) {
                 case 'android': openGooglePlay(); break;
                 case 'ios': openAppStore(); break;
