@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>儲值中心</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+    background: #f4f6f9;
+    color: #333;
+}
+
+.container {
+    max-width: 480px;
+    margin: auto;
+    padding: 16px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    margin-bottom: 16px;
+}
+
+.title {
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.highlight {
+    background: linear-gradient(90deg, #ffc371, #ff5f6d);
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.qr {
+    width: 100%;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+/* 銀行區塊 */
+.bank-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f1f3f7;
+    padding: 14px;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+.bank-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.bank-label {
+    font-size: 13px;
+    color: #666;
+}
+
+.bank-value {
+    font-size: 26px;
+    font-weight: 800;
+    color: #111;
+    letter-spacing: 1px;
+}
+
+/* 複製按鈕 */
+.copy-btn {
+    background: #007aff;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.copy-btn:active {
+    background: #005fd1;
+}
+
+.button {
+    display: block;
+    text-align: center;
+    background: #007aff;
+    color: white;
+    padding: 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 16px;
+}
+
+.button:active {
+    background: #005fd1;
+}
+
+.step {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+/* 紅字警告 */
+.note {
+    font-size: 13px;
+    color: #ff3b30;
+    margin-top: 10px;
+    line-height: 1.6;
+    font-weight: bold;
+}
+
+.footer {
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 20px;
+}
+
+/* ⭐ Toast */
+.toast {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 16px 28px;              /* ⭐ 放大 padding */
+    border-radius: 30px;
+    font-size: 20px;                /* ⭐ 字體放大（原本14 → 20） */
+    font-weight: bold;
+    opacity: 0;
+    transition: all 0.25s ease;
+    z-index: 999;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) scale(1); /* ⭐ 放大動畫 */
+}
+</style>
+
+<script>
+function copyText(text) {
+    navigator.clipboard.writeText(text);
+    showToast("已複製：" + text);
+}
+
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.innerText = message;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 1500);
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- 主標 -->
+    <div class="card">
+        <div class="title">大額匯款儲值辦法</div>
+
+        <div class="highlight">
+            單筆 10,000 以上，水晶回饋💎 55%
+        </div>
+
+        <!-- 銀行代碼 -->
+        <div class="bank-row">
+            <div class="bank-text">
+                <div class="bank-label">銀行代碼（街口支付）</div>
+                <div class="bank-value">396</div>
+            </div>
+            <button class="copy-btn" onclick="copyText('396')">複製</button>
+        </div>
+
+        <!-- 帳號 -->
+        <div class="bank-row">
+            <div class="bank-text">
+                <div class="bank-label">收款帳號</div>
+                <div class="bank-value">902061382</div>
+            </div>
+            <button class="copy-btn" onclick="copyText('902061382')">複製</button>
+        </div>
+
+        <a class="button" href="https://service.jkopay.com/r/transfer?j=Transfer:902061382">
+            🚀 立即轉帳
+        </a>
+    </div>
+
+    <!-- 流程 -->
+    <div class="card">
+        <div class="title">操作流程</div>
+
+        <div class="step">
+            1️⃣ 匯款至銀行帳戶（10,000以上）
+        </div>
+
+        <div class="step">
+            2️⃣ 到 Discord 私訊「小幫手」，並提供：
+            <br>・匯款紀錄截圖 或 帳號末 5 碼
+            <br>・遊戲的玩家 ID
+        </div>
+
+        <div class="step">
+            3️⃣ 最多一天內，以遊戲信件發放：
+            <br>🎁 彩虹石 + 回饋水晶
+        </div>
+
+        <div class="note">
+            ※ 統一發放彩虹石，其他禮包請改用彩虹石購買
+        </div>
+    </div>
+
+    <!-- QR -->
+    <img src="jkopay.png" class="qr">
+
+    <div class="footer">
+        支援所有銀行及電子支付
+    </div>
+
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast"></div>
+
+</body>
+</html>
