@@ -50,6 +50,35 @@ body {
     margin-top: 10px;
 }
 
+.qr-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.qr-row .qr {
+    width: calc(50% - 5px);
+}
+
+.section-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: #222;
+    margin-top: 14px;
+}
+
+.section-title:first-of-type {
+    margin-top: 0;
+}
+
+.section-note {
+    font-size: 17px;
+    color: #ff3b30;
+    font-weight: 900;
+    line-height: 1.5;
+    margin: 12px 0 4px;
+}
+
 /* 銀行區塊 */
 .bank-row {
     display: flex;
@@ -64,6 +93,7 @@ body {
 .bank-text {
     display: flex;
     flex-direction: column;
+    min-width: 0;
 }
 
 .bank-label {
@@ -72,10 +102,11 @@ body {
 }
 
 .bank-value {
-    font-size: 26px;
+    font-size: clamp(20px, 6vw, 26px);
     font-weight: 800;
     color: #111;
     letter-spacing: 1px;
+    overflow-wrap: anywhere;
 }
 
 /* 複製按鈕 */
@@ -87,6 +118,7 @@ body {
     border-radius: 10px;
     font-weight: bold;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .copy-btn:active {
@@ -179,11 +211,13 @@ function showToast(message) {
 
     <!-- 主標 -->
     <div class="card">
-        <div class="title">大額匯款儲值辦法</div>
+        <div class="title">大額匯款儲值(限單筆 10,000 以上)</div>
 
         <div class="highlight">
             單筆 10,000 以上，水晶回饋💎 55%
         </div>
+
+        <div class="section-title">街口支付</div>
 
         <!-- 銀行代碼 -->
         <div class="bank-row">
@@ -206,6 +240,30 @@ function showToast(message) {
         <a class="button" href="https://service.jkopay.com/r/transfer?j=Transfer:902061382">
             🚀 立即轉帳
         </a>
+
+        <div class="section-note">
+            ⚠️ 如果匯款失敗，可以嘗試另一個帳戶
+        </div>
+
+        <div class="section-title">連線商業銀行</div>
+
+        <!-- 連線商業銀行代碼 -->
+        <div class="bank-row">
+            <div class="bank-text">
+                <div class="bank-label">銀行代碼（連線商業銀行）</div>
+                <div class="bank-value">824</div>
+            </div>
+            <button class="copy-btn" onclick="copyText('824')">複製</button>
+        </div>
+
+        <!-- 連線商業銀行帳號 -->
+        <div class="bank-row">
+            <div class="bank-text">
+                <div class="bank-label">收款帳號</div>
+                <div class="bank-value">111015332617</div>
+            </div>
+            <button class="copy-btn" onclick="copyText('111015332617')">複製</button>
+        </div>
     </div>
 
     <!-- 流程 -->
@@ -232,8 +290,10 @@ function showToast(message) {
         </div>
     </div>
 
-    <!-- QR -->
-    <img src="jkopay.png" class="qr">
+    <div class="qr-row">
+        <img src="jkopay.png" class="qr" alt="街口支付 QR Code">
+        <img src="line_bank.png" class="qr" alt="連線商業銀行 QR Code">
+    </div>
 
     <div class="footer">
         支援所有銀行及電子支付
