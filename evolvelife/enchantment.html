@@ -192,6 +192,11 @@
             background: rgba(255, 241, 184, .38);
         }
 
+        /* Grade backgrounds are provided by enchantmentGradeColors in scripts.js. */
+        td[data-grade] {
+            color: #000000;
+        }
+
         tbody tr:last-child td {
             border-bottom: 0;
         }
@@ -206,6 +211,25 @@
 
         tbody tr:hover {
             background: var(--butter-soft);
+        }
+
+        .enchantment-grades {
+            display: grid;
+            grid-template-columns: repeat(3, max-content);
+            justify-content: center;
+            gap: 4px 8px;
+            margin-top: 7px;
+            color: var(--coffee);
+            font-size: .78rem;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .enchantment-grades span {
+            padding: 2px 7px;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            background: var(--cream);
+            white-space: nowrap;
         }
 
         @keyframes reveal {
